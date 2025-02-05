@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+</head>
+<body>
+<h2>Регистрация</h2>
+
+{{if .Error}}
+<div style="color: red;">
+    Ошибка: {{.Error}}
+</div>
+{{end}}
+
+<form action="/register" method="POST">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="Email" required><br><br>
+
+    <label for="password">Пароль:</label><br>
+    <input type="password" id="password" name="Password" required><br><br>
+
+    <input type="submit" value="Зарегистрироваться">
+</form>
+
+<p>Уже есть аккаунт? <a href="/login">Войдите</a></p>
+</body>
+</html>

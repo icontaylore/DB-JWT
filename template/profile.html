@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .info {
+      margin-bottom: 15px;
+    }
+    .logout {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      background: red;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .logout:hover {
+      background: darkred;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Ваш профиль</h1>
+  <div class="info"><strong>Email:</strong> <span>{{.email}}</span></div>
+  <a href="/logout" class="logout">Выйти</a>
+</div>
+
+</body>
+</html>
