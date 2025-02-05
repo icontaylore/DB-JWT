@@ -5,12 +5,15 @@ import (
 	"postgresandjwt/internal/database"
 	"postgresandjwt/internal/handler"
 	"postgresandjwt/internal/server"
+	"postgresandjwt/internal/sescoock"
 )
 
 func main() {
 	// INIT GIN
 	router := gin.Default()
 	router.LoadHTMLGlob("../template/*")
+	// создаем сессии и куки
+	sescoock.GoCoockieAndSession(router)
 	// CREATE DB and CONNECT //
 	db := database.ConnectDb()
 	// HANDLER REG //

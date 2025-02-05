@@ -6,15 +6,16 @@ import (
 	"log"
 )
 
-func CheckInDatabase(db *sqlx.DB) {
-	rows, err := db.Query("select * from users")
+func CheckInDatabase(db *sqlx.DB, email string) bool {
+	fmt.Println(email)
+	var exists bool
+	err := db.Get(&exists, "select exists(select 1 from users where email =$1)", email)
 	if err != nil {
-		log.Printf("[нельзя достать юзеров]", err)
+		log.Printf("[ОШИБКА СКАНИРОВАНИЯ]")
 	}
-
-	for rows.Next() {
-		u := User{}
-		rows.Scan(&u.Id, &u.Email, &u.Password)
-		fmt.Println(u)
+	if !exists {
+		return false
+	} else {
+		return true
 	}
 }

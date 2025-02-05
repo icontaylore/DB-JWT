@@ -18,6 +18,8 @@ func HandlerRegPost(db *sqlx.DB) gin.HandlerFunc {
 			log.Printf("[SHOULD BIND ERR]", err)
 		}
 
-		user.CheckInDatabase(db)
+		if user.CheckInDatabase(db, u.Email) {
+			SomeHandler(c, "пользователь существует")
+		}
 	}
 }
