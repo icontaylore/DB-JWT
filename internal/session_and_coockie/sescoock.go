@@ -1,4 +1,4 @@
-package sescoock
+package session_and_coockie
 
 import (
 	"github.com/gin-contrib/sessions"
